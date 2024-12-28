@@ -58,7 +58,7 @@
                             DataTable Example
                         </div>
                         <div class="card-body">
-                            <table id="example" class="table table-striped table-bordered">
+                            <table id="example" class="table table-striped table-bordered table-responsive">
                                 <thead>
                                     <tr>
                                         <th>#</th>

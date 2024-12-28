@@ -13,12 +13,7 @@ class AuthController extends Controller
         return view('Auth.login');
     }
     public function loginController(Request $request,Login $login){
-        $response = $login->login($request);
-        if($response->successful()){
-            return redirect()->route('verify.otp');
-        }else{
-            return redirect()->back()->with(['error','Wrong Credentials']);
-        }
+        $login->login($request);
     }
     public function verifyOtp(Request $request,Login $login){
         $response = $login->verifyOtp($request);

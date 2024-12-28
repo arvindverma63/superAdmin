@@ -7,52 +7,53 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
-class Login{
-    public function login(Request $request){
+class Login
+{
+    public function login(Request $request)
+    {
         $validated = $request->validate([
-            'email'=>'required|email',
-            'password'=>'required',
+            'email' => 'required|email',
+            'password' => 'required',
         ]);
 
-        Log::info('attempt to login : ',[$validated]);
+        Log::info('attempt to login : ', [$validated]);
         $baseUrl = env('API_BASE_URL');
-        Log::info('attempt baseUrl : ',[$baseUrl]);
-        $response = Http::post($baseUrl.'/login',[
-            'email'=>$validated['email'],
-            'password'=>$validated['password']
+        Log::info('attempt baseUrl : ', [$baseUrl]);
+        $response = Http::post($baseUrl . '/login', [
+            'email' => $validated['email'],
+            'password' => $validated['password']
         ]);
 
-        if($response->successful()){
+        if ($response->successful()) {
             Log::info($response);
 
-            Session::put('email',$validated['email']);
+            Session::put('email', $validated['email']);
 
-            return $response;
-        }else{
+            return redirect()->route('verify.otp');
+        } else {
             Log::error($response);
-            return $response;
+            return redirect()->back()->with(['error', 'Wrong Credentials']);
         }
-
     }
 
-    public function verifyOtp(Request $request){
+    public function verifyOtp(Request $request)
+    {
         $validated = $request->validate([
-            'otp'=>'string|required',
+            'otp' => 'string|required',
         ]);
 
         $baseUrl = env('API_BASE_URL');
         $email = Session::get('email');
 
-        $response = Http::post($baseUrl.'/verify-otp',[
-            'email'=>$email,
-            'otp'=>$validated['otp'],
+        $response = Http::post($baseUrl . '/verify-otp', [
+            'email' => $email,
+            'otp' => $validated['otp'],
         ]);
 
-        if($response->successful()){
+        if ($response->successful()) {
             Log::info($response);
             return $response;
-        }
-        else{
+        } else {
             Log::error($response);
         }
     }

@@ -13,7 +13,8 @@ class AuthController extends Controller
         return view('Auth.login');
     }
     public function loginController(Request $request,Login $login){
-        $login->login($request);
+        $response = $login->login($request);
+        return $response;
     }
     public function verifyOtp(Request $request,Login $login){
         $response = $login->verifyOtp($request);

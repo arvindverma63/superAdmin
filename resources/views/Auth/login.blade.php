@@ -15,13 +15,12 @@
         <h2 class="text-2xl font-bold text-center mb-6 text-gray-700">Login</h2>
         <form action="/login/api" method="POST">
             @csrf
-            <!-- Email -->
             @if (session('success'))
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success text-green-500 mb-4" role="alert">
                     {{ session('success') }}
                 </div>
             @elseif (session('error'))
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger text-red-500 mb-4" role="alert">
                     {{ session('error') }}
                 </div>
             @endif

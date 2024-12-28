@@ -26,7 +26,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Restaurant Name</th>
+                                            <th>Restaurant</th>
                                             <th>Email</th>
                                             <th>Otp</th>
                                         </tr>

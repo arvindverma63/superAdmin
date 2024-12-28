@@ -16,6 +16,8 @@ class AuthController extends Controller
         $response = $login->login($request);
         if($response->successful()){
             return redirect()->route('verify.otp');
+        }else{
+            return redirect()->back()->with(['error','Wrong Credentials']);
         }
     }
     public function verifyOtp(Request $request,Login $login){

@@ -58,31 +58,32 @@
                             DataTable Example
                         </div>
                         <div class="card-body">
-                            <table id="example" class="table table-striped table-bordered table-responsive">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Restaurant Name</th>
-                                        <th>Email</th>
-                                        <th>Otp</th>
-                                        <th>Expire At</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($user as $users)
+                            <div class="table-responsive">
+                                <table id="example" class="table table-striped table-bordered">
+                                    <thead>
                                         <tr>
-                                            <td>{{ $users['id'] ??'N/A' }}</td>
-                                            <td>{{ $users['name'] ?? 'N/A' }}</td>
-                                            <td>{{ $users['email'] ?? 'N/A' }}</td>
-                                            <td>{{ $users['otp'] ?? 'N/A' }}</td>
-                                            <td>{{ $users['expire_at'] ?? 'N/A' }}</td>
+                                            <th>#</th>
+                                            <th>Restaurant Name</th>
+                                            <th>Email</th>
+                                            <th>Otp</th>
+                                            <th>Expire At</th>
                                         </tr>
-                                    @endforeach
-
-
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($user as $users)
+                                            <tr>
+                                                <td>{{ $users['id'] ?? 'N/A' }}</td>
+                                                <td>{{ $users['name'] ?? 'N/A' }}</td>
+                                                <td>{{ $users['email'] ?? 'N/A' }}</td>
+                                                <td>{{ $users['otp'] ?? 'N/A' }}</td>
+                                                <td>{{ $users['expire_at'] ?? 'N/A' }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </main>

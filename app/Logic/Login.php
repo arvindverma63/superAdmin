@@ -14,7 +14,9 @@ class Login{
             'password'=>'required',
         ]);
 
+        Log::info('attempt to login : ',[$validated]);
         $baseUrl = env('API_BASE_URL');
+        Log::info('attempt baseUrl : ',[$baseUrl]);
         $response = Http::post($baseUrl.'/login',[
             'email'=>$validated['email'],
             'password'=>$validated['password']

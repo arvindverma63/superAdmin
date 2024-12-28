@@ -13,4 +13,7 @@ class PageController extends Controller
     public function dashboard(Users $user){
         return view('pages.index',['user'=>$user->getAllUser()->json()]);
     }
+    public function addUserPage(){
+        return view('pages.addUser');
+    }
 }

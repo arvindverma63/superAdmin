@@ -13,13 +13,12 @@
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
-
-
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             Restaurant DataTable
                         </div>
+
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="example" class="table table-sm table-bordered table-striped">

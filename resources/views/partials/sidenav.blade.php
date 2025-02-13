@@ -11,6 +11,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>
                     User
                 </a>
+                <a class="nav-link" href="/socialMedia">
+                    <div class="sb-nav-link-icon"><i class="fas fa-video"></i></div>
+                    Social Media
+                </a>
         </div>
         <div class="sb-sidenav-footer">
             <div class="small">Logged in as:</div>

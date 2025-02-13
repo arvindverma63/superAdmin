@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,8 @@ Route::middleware(['auth.token'])->group(function () {
     Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
     Route::get('/user',[PageController::class,'addUserPage'])->name('user');
     Route::post('/addUser',[UserController::class,'addUser']);
+    Route::get('/socialMedia',[PageController::class,'socialMedia'])->name('social');
+    Route::post('/add-influencers',[SocialMediaController::class,'addData'])->name('influencer.store');
 });
 
 Route::get('/logout',[AuthController::class,'logout']);

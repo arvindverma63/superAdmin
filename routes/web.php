@@ -30,6 +30,7 @@ Route::middleware(['auth.token'])->group(function () {
     Route::post('/addUser',[UserController::class,'addUser']);
     Route::get('/socialMedia',[PageController::class,'socialMedia'])->name('social');
     Route::post('/add-influencers',[SocialMediaController::class,'addData'])->name('influencer.store');
+    Route::put('/update-permission',[UserController::class,'updatePermission']);
 });
 
 Route::get('/logout',[AuthController::class,'logout']);
